@@ -171,24 +171,9 @@ func GetScan(input InputGetScan, config utils.Config) ([]ScanType, error) {
 		return nil, err
 	}
 
-	body, err := io.ReadAll(res.Body)
-
-	if err != nil {
-		return nil, err
-	}
+	body, _ := io.ReadAll(res.Body)
 
 	defer res.Body.Close()
-
-	if res.StatusCode == 200 {
-		var response ResponseProject
-
-		err = json.Unmarshal(body, &response)
-
-		if err != nil {
-			return nil, err
-		}
-
-	}
 
 	if res.StatusCode == 200 {
 		var response ResponseScan

@@ -1,6 +1,7 @@
 package checkmarx
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/marafu/nova8-scripts/cmd/utils"
@@ -35,10 +36,15 @@ func App(filename string, projectName string) error {
 		AccessToken: token.AccessToken,
 	}, *config)
 
-	for i, result := range results {
-		if i > 0 {
-			log.Println(result.QueryName)
+	for _, result := range results {
+
+		log.Println(result.QueryName)
+		for _, node := range result.Nodes {
+			log.Println(node.FullName)
+
 		}
+
+		fmt.Println()
 	}
 
 	return nil

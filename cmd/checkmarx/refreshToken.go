@@ -30,7 +30,7 @@ type ResponseRefreshToken struct {
 
 func GetRefreshToken(config utils.Config) (*ResponseRefreshToken, error) {
 
-	uri := fmt.Sprintf("%s/auth/realms/%s/protocol/openid-connect/token", config.Checkmarx.TenantName, config.Checkmarx.AuthUrl)
+	uri := fmt.Sprintf("%s/auth/realms/%s/protocol/openid-connect/token", config.Checkmarx.AuthUrl, config.Checkmarx.TenantName)
 
 	payload := strings.NewReader(fmt.Sprintf("grant_type=refresh_token&client_id=%s&refresh_token=%s", config.Checkmarx.ClientID, config.Checkmarx.AccessToken))
 
