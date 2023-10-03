@@ -1,0 +1,9 @@
+checkmarx:
+  access_token: ""
+  base_url: "https://eu.ast.checkmarx.net"
+  auth_url: "https://eu.iam.checkmarx.net"
+  client_id: ""
+  tenant_name: ""
+
+general:
+  proxy: ""
